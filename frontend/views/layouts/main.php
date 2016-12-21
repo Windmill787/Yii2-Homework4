@@ -35,6 +35,12 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
+        ['label' => 'Students', 'url' => ['/students/index']],
+        ['label' => 'Homework', 'url' => ['/homework/index']],
+        ['label' => 'Department', 'url' => ['/department/index']],
+        ['label' => 'Thema', 'url' => ['/thema/index']],
+        ['label' => 'Student Homework', 'url' => ['/students-homework/index']],
+        ['label' => 'Test', 'url' => ['/test/index']],
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],
         ['label' => 'Contact', 'url' => ['/site/contact']],

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Thema */
+/* @var $model common\models\Thema */
 
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Themas', 'url' => ['index']];

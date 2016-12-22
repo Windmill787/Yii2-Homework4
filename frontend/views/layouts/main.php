@@ -39,7 +39,6 @@ AppAsset::register($this);
         ['label' => 'Homework', 'url' => ['/homework/index']],
         ['label' => 'Department', 'url' => ['/department/index']],
         ['label' => 'Thema', 'url' => ['/thema/index']],
-        ['label' => 'Student Homework', 'url' => ['/students-homework/index']],
         ['label' => 'Test', 'url' => ['/test/index']],
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],

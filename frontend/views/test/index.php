@@ -14,9 +14,6 @@ $this->title = 'Test Application';
 
 echo Html::beginTag('table', ['border' => 2]);
 ?>
-<p>
-    <?= Html::a('Create', ['create'], ['class' => 'btn btn-success']); ?>
-</p>
 <?php
 foreach ($data as $test) {
 

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Thema */
+/* @var $model common\models\Thema */
 
 $this->title = 'Create Thema';
 $this->params['breadcrumbs'][] = ['label' => 'Themas', 'url' => ['index']];

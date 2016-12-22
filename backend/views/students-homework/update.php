@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\StudentsHomework */
+/* @var $model common\models\StudentsHomework */
 
 $this->title = 'Update Students Homework: ' . $model->students_id;
 $this->params['breadcrumbs'][] = ['label' => 'Students Homeworks', 'url' => ['index']];

@@ -58,58 +58,6 @@ class StudentsHomeworkController extends Controller
     }
 
     /**
-     * Creates a new StudentsHomework model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new StudentsHomework();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'students_id' => $model->students_id, 'homework_id' => $model->homework_id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
-     * Updates an existing StudentsHomework model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $students_id
-     * @param integer $homework_id
-     * @return mixed
-     */
-    public function actionUpdate($students_id, $homework_id)
-    {
-        $model = $this->findModel($students_id, $homework_id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'students_id' => $model->students_id, 'homework_id' => $model->homework_id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
-     * Deletes an existing StudentsHomework model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $students_id
-     * @param integer $homework_id
-     * @return mixed
-     */
-    public function actionDelete($students_id, $homework_id)
-    {
-        $this->findModel($students_id, $homework_id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
      * Finds the StudentsHomework model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $students_id

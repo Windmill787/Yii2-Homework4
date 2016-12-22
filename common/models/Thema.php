@@ -2,7 +2,7 @@
 
 namespace common\models;
 
-use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "thema".
@@ -12,7 +12,7 @@ use Yii;
  *
  * @property Homework[] $homeworks
  */
-class Thema extends \yii\db\ActiveRecord
+class Thema extends ActiveRecord
 {
     /**
      * @inheritdoc

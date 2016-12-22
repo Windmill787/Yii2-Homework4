@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\StudentsSearch */
+/* @var $searchModel common\models\StudentsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Students';
@@ -20,6 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 

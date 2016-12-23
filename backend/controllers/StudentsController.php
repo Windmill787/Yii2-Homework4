@@ -67,7 +67,7 @@ class StudentsController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'model' => Students::find()->where(['id' => $id])->one(),
+            'model' => $this->findModel($id),
         ]);
     }
 

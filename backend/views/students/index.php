@@ -29,5 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]);
+    $option = \common\models\Department::find()->all();
+    print_r(\yii\helpers\ArrayHelper::map($option, 'id', 'department_name'));?>
 </div>

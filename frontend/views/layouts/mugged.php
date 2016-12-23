@@ -1,9 +1,12 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\Menu;
-use frontend\assets\GreyAsset;
+use frontend\assets\MuggedAsset;
 
-GreyAsset::register($this);
+// You can use the registerAssetBundle function if you'd like
+//$this->registerAssetBundle('app');
+
+MuggedAsset::register($this);
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
@@ -21,8 +24,8 @@ GreyAsset::register($this);
 <?php $this->head(); ?>
 </head>
 <body class='wsite-theme-light tall-header-page wsite-page-index weeblypage-index'>
-  <?php $this->beginBody(); ?>
-<div id="container">
+<?php $this->beginBody(); ?>
+<div id="wrapper">
   <table id="header">
     <tr>
       <td id="logo"><span class='wsite-logo'><a href='/'><span id="wsite-title"><?php echo Html::encode(\Yii::$app->name); ?></span></a></span></td>
@@ -31,50 +34,42 @@ GreyAsset::register($this);
           <tr>
             <td class="phone-number"></td>
             <td class="social"></td>
+            <td class="search"></td>
           </tr>
         </table>
-        <div class="search"></div>
       </td>
     </tr>
   </table>
-  <div id="main">
-    <div id="navigation">
- <?php echo Menu::widget(array(
+  <div id="banner">
+    <div id="navigation" class="wsite-nav-vertical">
+<?php echo Menu::widget(array(
         'options' => array('class' => 'nav'),
-        'items' => [
+        'items' => array(
             ['label' => 'Students', 'url' => ['/students/index']],
             ['label' => 'Homework', 'url' => ['/homework/index']],
             ['label' => 'Department', 'url' => ['/department/index']],
             ['label' => 'Thema', 'url' => ['/thema/index']],
             ['label' => 'Test', 'url' => ['/test/index']],
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+          array('label' => 'Home', 'url' => array('/site/index')),
+          array('label' => 'About', 'url' => array('/site/about')),
+          array('label' => 'Contact', 'url' => array('/site/contact')),
           Yii::$app->user->isGuest ?
             array('label' => 'Login', 'url' => array('/site/login')) :
             array('label' => 'Logout (' . Yii::$app->user->identity->username .')' , 'url' => array('/site/logout')),
-        ],
+        ),
       )); ?>
-      <div class="clear"></div>
     </div>
-    <div class="banner-container">
-      <div id="banner">
-        <div class="wsite-header"></div>
-      </div>
-    </div>
-    <div id="content">
-      <div id='wsite-content' class='wsite-not-footer'>
-         <?php echo $content; ?>
+    <div class="wsite-header"></div>
+  </div>
+  <div id="contentcontainer">
+    <div id="content"><div id='wsite-content' class='wsite-not-footer'>
+      <?php echo $content; ?>
 </div>
-
-      <div class="clear"></div>
-    </div>
+</div>
   </div>
-  <div id="footer">
-    <?php echo Html::encode(\Yii::$app->name); ?>
+  <div id="footer"><?php echo Html::encode(\Yii::$app->name); ?>
 
-    <div class="clear"></div>
-  </div>
+</div>
 </div>
 
 <?php $this->endBody(); ?>

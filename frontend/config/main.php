@@ -37,13 +37,19 @@ return [
             'errorAction' => 'site/error',
         ],
 
+        'view' => [
+            'theme' => [
+                'basePath' => '@webroot/themes/grey',
+                'baseUrl' => '@web/themes/grey',
+            ],
+        ],
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-
     ],
     'params' => $params,
 ];

@@ -7,6 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\HomeworkSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+$this->registerCssFile('@web/themes/grey/css/input.css');
 $this->title = 'Homeworks';
 $this->params['breadcrumbs'][] = $this->title;
 ?>

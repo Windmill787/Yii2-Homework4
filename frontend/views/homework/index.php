@@ -2,12 +2,12 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use common\widgets\TestWidget;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\HomeworkSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->registerCssFile('@web/themes/grey/css/input.css');
 $this->title = 'Homeworks';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -26,5 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'thema_id',
 
         ],
-    ]); ?>
+    ]);
+?>
+
+   <?= TestWidget::widget(); ?>
+
 </div>

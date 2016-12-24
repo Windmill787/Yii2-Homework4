@@ -1,12 +1,28 @@
-input[type="text"]{
-    padding: 5px 5px 5px 0;
-    border: 1px solid rgba(30, 85, 255, 0.5);
-@include box-shadow(
-0 2px 10px rgba(0, 0, 0, .25) inset,
-0 2px 10px rgba(0, 0, 0, .25));
-@include border-radius(10px);
-    background: rgba(255, 227, 223, 0.5);
-@include appearance(none);
+input[type="text"], textarea{
+    padding: 5px;
+    font-size: 16px;
+    border: 5px solid rgba(47, 133, 255, 0.5);
+    @include box-shadow(
+    0 2px 10px rgba(0, 0, 0, .25) inset,
+    0 2px 10px rgba(0, 0, 0, .25));
+    @include border-radius(10px);
+    background: rgba(255, 154, 144, 0.5);
+    @include appearance(none);
     outline: none;
     color: #333;
 }
+
+button{
+    color: #fff; /* цвет текста */
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    background: rgba(47, 133, 255, 0.5); /* фон кнопки */
+    padding: .7em 1.5em; /* отступ от текста */
+    outline: none; /* убирать контур в Mozilla */
+}
+
+button:hover { background: rgb(98, 130, 232); } /* при наведении курсора мышки */
+button:active {
+    background: rgb(98, 130, 232);
+    border: 2px solid rgba(255, 0, 11, 0.5);
+} /* при нажатии */

@@ -4,7 +4,7 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use common\widgets\TestWidget;
+use common\widgets\HelloWidget;
 use frontend\assets\GreyAsset;
 use yii\widgets\Menu;
 use frontend\assets\ProgressAsset;
@@ -23,9 +23,16 @@ GreyAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 
+    <script>
+        $('body').show();
+        $('.version').text(NProgress.version);
+        NProgress.start();
+    </script>
+
 </head>
 <body class="wsite-theme-light tall-header-page wsite-page-index weeblypage-index">
 <?php $this->beginBody() ?>
+
 
 <div id="container">
     <table id="header">
@@ -67,11 +74,18 @@ GreyAsset::register($this);
     <div class="clear"></div>
 </div>
 
+    <div id="container">
+        <p align="right"><?= HelloWidget::widget(); ?></p>
+    </div>
+
     <div class="banner-container">
         <div id="banner">
             <div class="wsite-header"></div>
         </div>
     </div>
+
+
+
 
     <div id="container">
         <div id='wsite-content' class='wsite-not-footer'>
@@ -92,11 +106,10 @@ GreyAsset::register($this);
 </div>
 
 <script>
-    $('body').show();
-    $('.version').text(NProgress.version);
-    NProgress.start();
-    setTimeout(function() { NProgress.done(); $('.fade').removeClass('out'); }, 1000);
+    NProgress.done();
+    $('.fade').removeClass('out');
 </script>
+
 <?php $this->endBody() ?>
 </body>
 </html>

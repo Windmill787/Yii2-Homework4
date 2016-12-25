@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use common\widgets\TestWidget;
+use yii\bootstrap\Modal;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\HomeworkSearch */
@@ -28,7 +29,4 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]);
 ?>
-
-   <?= TestWidget::widget(); ?>
-
 </div>

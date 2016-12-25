@@ -25,5 +25,6 @@ class ProgressAsset extends AssetBundle
     ];
     public $jsOptions = ['position' => View::POS_HEAD];
     public $depends = [
+        'yii\web\JqueryAsset',
     ];
 }

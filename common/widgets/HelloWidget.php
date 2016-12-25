@@ -10,17 +10,20 @@ namespace common\widgets;
 
 use yii\base\Widget;
 use yii\helpers\Html;
+use Yii;
 
-class TestWidget extends Widget
+class HelloWidget extends Widget
 {
+    public $username = 'Guest';
     public $message;
 
     public function init()
     {
         parent::init();
-        if ($this->message === null) {
-            $this->message = 'Hello World';
+        if (isset(Yii::$app->user->identity->username)){
+            $this->username = Yii::$app->user->identity->username;
         }
+        $this->message = 'Hello, '.$this->username;
     }
 
     public function run()

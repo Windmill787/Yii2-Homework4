@@ -4,13 +4,14 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
-use frontend\assets\AppAsset;
-use common\widgets\Alert;
+use common\widgets\HelloWidget;
+use frontend\assets\GreyAsset;
+use yii\widgets\Menu;
+use frontend\assets\ProgressAsset;
 
-AppAsset::register($this);
+$this->registerCssFile('@web/themes/grey/css/input.css');
+ProgressAsset::register($this);
+GreyAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -21,60 +22,93 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+
+    <script>
+        $('body').show();
+        $('.version').text(NProgress.version);
+        NProgress.start();
+    </script>
+
 </head>
-<body>
+<body class="wsite-theme-light tall-header-page wsite-page-index weeblypage-index">
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+
+<div id="container">
+    <table id="header">
+        <tr>
+            <td id="logo"><span class='wsite-logo'><a href='/'><span id="wsite-title"><?php echo Html::encode(\Yii::$app->name); ?></span></a></span></td>
+            <td id="header-right">
+                <table>
+                    <tr>
+                        <td class="phone-number"></td>
+                        <td class="social"></td>
+                    </tr>
+                </table>
+                <div class="search"></div>
+            </td>
+        </tr>
+    </table>
+
+<div id="main">
+    <div id="navigation">
     <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+    echo Menu::widget([
+        'options' => ['class' => 'nav'],
+        'items' => [
+            ['label' => 'Students', 'url' => ['/students/index']],
+            ['label' => 'Homework', 'url' => ['/homework/index']],
+            ['label' => 'Department', 'url' => ['/department/index']],
+            ['label' => 'Thema', 'url' => ['/thema/index']],
+            ['label' => 'Test', 'url' => ['/test/index']],
+            ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'About', 'url' => ['/site/about']],
+            ['label' => 'Contact', 'url' => ['/site/contact']],
+            Yii::$app->user->isGuest ?
+                ['label' => 'Login', 'url' => ['/site/login']] :
+                ['label' => 'Logout (' . Yii::$app->user->identity->username .')' , 'url' => ['/site/logout']],
         ],
     ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
+    ?>
+    <div class="clear"></div>
+</div>
+
+    <div id="container">
+        <p align="right"><?= HelloWidget::widget(); ?></p>
+    </div>
+
+    <div class="banner-container">
+        <div id="banner">
+            <div class="wsite-header"></div>
+        </div>
+    </div>
+
+
+
+
+    <div id="container">
+        <div id='wsite-content' class='wsite-not-footer'>
+
         <?= $content ?>
+        </div>
+
+        <div class="clear"></div>
     </div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
+<footer id="footer">
+    <div class="banner-container">
+        <p>&copy; My Company <?= date('Y') ?></p>
+        <p><?= Yii::powered() ?></p>
     </div>
 </footer>
+</div>
+
+<script>
+    NProgress.done();
+    $('.fade').removeClass('out');
+</script>
 
 <?php $this->endBody() ?>
 </body>
